@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "spawnerprogression",
+    "name": "SpawnerProgression",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://piconodev.pt/",
+    "updateUrl": "",
+    "authorList": [
+      "Picono435"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
