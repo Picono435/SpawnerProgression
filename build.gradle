@@ -9,6 +9,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'com.gmail.picono435'
@@ -84,9 +88,8 @@ minecraft {
     }
 }
 
-configurations {
-    embed
-    compile.extendsFrom(embed)
+shadowJar {
+    configurations = [project.configurations.shadow]
 }
 
 tasks.withType(JavaCompile) {
@@ -112,8 +115,8 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-    implementation embed('org.spongepowered:configurate-yaml:4.1.2')
-    implementation embed('org.spongepowered:configurate-core:4.1.2')
+    shadow(implementation('org.spongepowered:configurate-yaml:4.1.2'))
+    shadow(implementation('org.spongepowered:configurate-core:4.1.2'))
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
